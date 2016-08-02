@@ -6,7 +6,6 @@ export default class App extends Component {
     return (
       <div>
         <CommentBox />
-        <button>Submit Comment</button>
       </div>
     );
   }
