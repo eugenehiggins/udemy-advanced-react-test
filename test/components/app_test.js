@@ -15,11 +15,12 @@ describe('App', () => {
   //
   // })
 
-  let component
+  let component;
 
   beforeEach(() => {
     component = renderComponent(App);
   })
+
   it('shows a comment box', () => {
 
 
@@ -27,4 +28,7 @@ describe('App', () => {
 
   })
 
+  it('shows a comment list', () => {
+    expect( component.find('.comment-list')).to.exist;
+  })
 })
