@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
-export default class CommentBox extends Component {
+class CommentBox extends Component {
   // the follow event should be reflected in this component's
   // local state, so initialize the component's starting comment value
   constructor(props) {
@@ -13,6 +15,11 @@ export default class CommentBox extends Component {
 
   handleSubmit(event){
     event.preventDefault();
+
+    // Call the action creator and pass it the current comment
+    this.props.saveComment(this.state.comment);
+
+    // Empty the comment box
     this.setState({ comment: '' })
   }
 
@@ -30,3 +37,6 @@ export default class CommentBox extends Component {
     )
   }
 }
+
+// This binds all action creators to the CommentBox container
+export default connect(null, actions)(CommentBox);
